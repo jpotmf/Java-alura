@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,11 +17,11 @@ public class Menu {
                 7) Sair
                 Escolha uma opção válida:
                 ******************************************************""");
-                try {
+                /*try {
                     verificaOpcao(escolherOpcao());
                 } catch (InputMismatchException e){
                     System.out.println("Esse menu só aceita números!");
-                }
+                }*/
     }
 
     public int escolherOpcao(){
@@ -28,25 +29,37 @@ public class Menu {
         return leitura.nextInt();
     }
 
-    public void verificaOpcao(int opcaoSelecionada){
+    public void verificaOpcao(int opcaoSelecionada, String urlExchange, double valorInicial) throws IOException, InterruptedException {
         if (opcaoSelecionada == 1){
             String moedaBase = "USD";
             String moedaAlvo = "ARS";
+            String urlPesquisada = urlExchange + moedaBase + "/" + moedaAlvo + "/" + valorInicial;
+            PuxarJsonMoedas puxarJsonMoedas = new PuxarJsonMoedas(urlPesquisada);
         }else if (opcaoSelecionada == 2){
             String moedaBase = "ARS";
             String moedaAlvo = "USD";
+            String urlPesquisada = urlExchange + moedaBase + "/" + moedaAlvo + "/" + valorInicial;
+            PuxarJsonMoedas puxarJsonMoedas = new PuxarJsonMoedas(urlPesquisada);
         }else if (opcaoSelecionada == 3){
             String moedaBase = "USD";
             String moedaAlvo = "BRL";
+            String urlPesquisada = urlExchange + moedaBase + "/" + moedaAlvo + "/" + valorInicial;
+            PuxarJsonMoedas puxarJsonMoedas = new PuxarJsonMoedas(urlPesquisada);
         }else if (opcaoSelecionada == 4){
             String moedaBase = "BRL";
             String moedaAlvo = "USD";
+            String urlPesquisada = urlExchange + moedaBase + "/" + moedaAlvo + "/" + valorInicial;
+            PuxarJsonMoedas puxarJsonMoedas = new PuxarJsonMoedas(urlPesquisada);
         }else if (opcaoSelecionada == 5){
             String moedaBase = "USD";
             String moedaAlvo = "COP";
+            String urlPesquisada = urlExchange + moedaBase + "/" + moedaAlvo + "/" + valorInicial;
+            PuxarJsonMoedas puxarJsonMoedas = new PuxarJsonMoedas(urlPesquisada);
         }else if (opcaoSelecionada == 6){
             String moedaBase = "USD";
             String moedaAlvo = "COP";
+            String urlPesquisada = urlExchange + moedaBase + "/" + moedaAlvo + "/" + valorInicial;
+            PuxarJsonMoedas puxarJsonMoedas = new PuxarJsonMoedas(urlPesquisada);
         }else if (opcaoSelecionada == 7){
 
         } else {
